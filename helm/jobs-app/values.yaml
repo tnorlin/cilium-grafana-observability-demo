@@ -67,7 +67,7 @@ networkPolicy:
 debug: false
 
 tracing:
-  enabled: false
+  enabled: true
   otlpExporterEnabled: true
   otlpExporterHTTPEndpoint: http://$(HOST_IP):4318
   otlpExporterGRPCEndpoint: http://$(HOST_IP):4317
@@ -101,12 +101,12 @@ coreapi:
   errorRate: '0.1'
 
   # how often the API should delay requests with a sleep
-  sleepRate: '0.0'
+  sleepRate: '0.2'
   # lower bound on how long to sleep
-  sleepLowerBound: '0.0'
+  sleepLowerBound: '0.05'
   # upper bound on how long to sleep. Can set upper bound only to get a
   # constant delay.
-  sleepUpperBound: '0.0'
+  sleepUpperBound: '1.2'
   ingress:
     enabled: false
     host: ~
