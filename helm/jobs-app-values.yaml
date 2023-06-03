@@ -7,35 +7,36 @@ recruiter:
   replicas: 1
   ingress:
     enabled: true
-    host: recruiter.127-0-0-1.sslip.io
+    host: recruiter.c1demo.ploio.net
     pathType: Prefix
-    className: nginx
+    className: cilium
 
 jobposting:
   replicas: 1
   ingress:
     enabled: true
-    host: jobposting.127-0-0-1.sslip.io
+    host: jobposting.c1demo.ploio.net
     pathType: Prefix
-    className: nginx
+    className: cilium
 
 coreapi:
   replicas: 1
   # how often the API should return errors
-  errorRate: 0.01
+  errorRate: 0.05
   # how often the API should delay requests
   sleepRate: 0.1
-  sleepLowerBound: 0.1
-  sleepUpperBound: 0.2
+  sleepLowerBound: 0.5
+  sleepUpperBound: 2.9
   ingress:
     enabled: true
-    host: coreapi.127-0-0-1.sslip.io
+    host: coreapi.c1demo.ploio.net
     pathType: Prefix
-    className: nginx
+    className: cilium
+
 
 crawler:
   replicas: 1
-  crawlFrequencyLowerBound: 0.5
+  crawlFrequencyLowerBound: 1.0
   crawlFrequencyUpperBound: 5.0
 
 resumes:
